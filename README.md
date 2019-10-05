@@ -3,7 +3,7 @@ Clean Architecture Guidance to implement Clean Architecture on .NET Platforms wi
 
 ## Why?
 
-I want to close the existing gap on having a guidance for real world implementation of Clean Architecture in .NET platforms, specially when using Xamarin and with Reactive paradigm. Also to promote best practices on adaptive code and SOLID principles as it grows.
+I want to close the existing gap on having a guidance for real world implementation of Clean Architecture in .NET platforms, specially when using Xamarin and with Reactive paradigm. Also to promote best practices on adaptive code and SOLID principles as it grows. I am a strong believer that these practices and architecture allow us to write scalable, testable, adaptable and maintainable applications.
 
 ## Inspiration
 
