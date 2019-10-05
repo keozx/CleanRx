@@ -1,12 +1,13 @@
 # CleanRx
 Clean Architecture Guidance to implement Clean Architecture on .NET Platforms with a focus on Mobile and help of Reactive Programming
 
-## Objective
+## Why?
 
-Close the existing gap on having a guidance for real world implementation of Clean Architecture in .NET platforms, specially when using Xamarin and with Reactive paradigm. Also to promote best practices on adaptive code and SOLID principles as it grows.
+I want to close the existing gap on having a guidance for real world implementation of Clean Architecture in .NET platforms, specially when using Xamarin and with Reactive paradigm. Also to promote best practices on adaptive code and SOLID principles as it grows.
 
 ## Inspiration
-CleanRx for .NET is inspired in other efforts on using modern Clean Architecture and SOLID principles in other platforms. I'll give credit as much as I can but if you find something should be referenced properly let me know. The ideas exposed here and the samples will try to be original and evolve as my understanding of the concepts and practical experiences mature.
+
+CleanRx for .NET is inspired in other efforts on using modern Clean Architecture and SOLID principles in other platforms and general best practices in .NET / C#. I'll give credit as much as I can but if you find something should be referenced properly let me know. The ideas exposed here and the samples will try to be original and evolve as my understanding of the concepts and practical experiences mature. However, I'm using as base any public resource I can find and synthesize concepts based on my readings taking the best of each one I have came across with regarding this subject.
 
 ### On Clean Architecture
 
