@@ -31,3 +31,4 @@ CleanRx for .NET is inspired in other efforts on using modern Clean Architecture
 ### On Support Patterns
 
 - [Prism Modularity](https://github.com/PrismLibrary/Prism/tree/master/Source/Prism/Modularity)
+- Allan Ritchie's [Shiny samples](https://github.com/shinyorg/shinysamples) / a good quality code case study
