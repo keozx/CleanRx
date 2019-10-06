@@ -14,7 +14,8 @@ CleanRx for .NET is inspired in other efforts on using modern Clean Architecture
 [Clean Architecture — Functional Style Use Case Composition with RxJava/Kotlin](https://medium.com/@june.pravin/clean-architecture-functional-style-use-case-composition-with-rxjava-kotlin-898726c97dfe)
 
 [Architecting Android...The clean way?](https://fernandocejas.com/2014/09/03/architecting-android-the-clean-way/)
-
+[Architecting Android...Reloaded](https://fernandocejas.com/2018/05/07/architecting-android-reloaded/)
+[Architecting Android...The evolution](https://fernandocejas.com/2015/07/18/architecting-android-the-evolution/)
 [Clean Architecture with reactive use cases](https://medium.com/stepstone-tech/clean-architecture-with-reactive-use-cases-c943d7a8f69c)
 
 ### On Reactive Programming
