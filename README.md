@@ -27,3 +27,7 @@ CleanRx for .NET is inspired in other efforts on using modern Clean Architecture
 
 - Gary McLean Hall's book: [Adaptive Code: Agile coding with design patterns and SOLID principles](https://www.microsoftpressstore.com/store/adaptive-code-agile-coding-with-design-patterns-and-9781509302581)
 - [In Defense of the SOLID Principles](https://blog.ndepend.com/defense-solid-principles/)
+
+### On Support Patterns
+
+- [Prism Modularity](https://github.com/PrismLibrary/Prism/tree/master/Source/Prism/Modularity)
