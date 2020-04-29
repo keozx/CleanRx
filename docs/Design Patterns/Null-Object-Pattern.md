@@ -5,6 +5,7 @@ https://deviq.com/null-object-pattern/
 
 ### Some advantages
 * Avoid Cascading Nulls syntax to write less obfuscated code
+* Reduces complexity in client calls specially when chaining many (?) operators
 
 ### Anti patterns
 * IsNull property anti-pattern, defeats the purpose of the pattern
