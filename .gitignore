@@ -328,3 +328,4 @@ ASALocalRun/
 
 # MFractors (Xamarin productivity tool) working folder 
 .mfractor/
+/src/samples/contact-tracer/ContactTracer/AppForms/AppForms.Android/Resources/Resource.designer.cs
