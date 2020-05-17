@@ -8,4 +8,5 @@ Allows to provide a different implementation of the same interface at runtime ba
 
 https://refactoring.guru/design-patterns/strategy/csharp/example
 
-Reference: Adaptive Code - Gary McLean Hall
+Reference:
+(1) McLean, H. G. (2017). *Adaptive Code: Agile coding with design patterns and SOLID principles, 2nd Edition*. Microsoft Press

@@ -10,4 +10,5 @@ https://deviq.com/null-object-pattern/
 ### Anti patterns
 * IsNull property anti-pattern, defeats the purpose of the pattern
 
-Reference: Adaptive Code - Gary McLean Hall
+Reference:
+(1) McLean, H. G. (2017). *Adaptive Code: Agile coding with design patterns and SOLID principles, 2nd Edition*. Microsoft Press

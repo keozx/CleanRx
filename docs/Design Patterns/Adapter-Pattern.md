@@ -12,5 +12,6 @@ Uses composition to delegate from the methods of a desired interface to those of
 
 https://refactoring.guru/design-patterns/adapter/csharp/example
 
-Reference: Adaptive Code - Gary McLean Hall
+Reference:
+(1) McLean, H. G. (2017). *Adaptive Code: Agile coding with design patterns and SOLID principles, 2nd Edition*. Microsoft Press
 

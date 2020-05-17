@@ -4,7 +4,7 @@ Write tests first
 - Writing your tests first helps to prevent **over-engineering** a solution and provides a suite or regression tests to prevent breaking existing functionality.
 
 Refactoring
-- "The freedom to refactor with impunity is made possible by unit testing. Together, unit testing and refactoring form a mutually beneficial relationship, whereby unit testing enables refactoring and refactoring improves the design of code" - Gary McLean Hall
+- "The freedom to refactor with impunity is made possible by unit testing. Together, unit testing and refactoring form a mutually beneficial relationship, whereby unit testing enables refactoring and refactoring improves the design of code" - Gary McLean Hall (1)
 
 TDD
 - Development **driven** by tests producing just enough design.
@@ -34,8 +34,8 @@ https://gojko.net/2013/10/21/lets-break-the-agile-testing-quadrants/
 - Reduces repetitive setup code
 
 
-
-Reference: Adaptive Code - Gary McLean Hall
+Reference:
+(1) McLean, H. G. (2017). *Adaptive Code: Agile coding with design patterns and SOLID principles, 2nd Edition*. Microsoft Press
 
 ![class](class.svg)
 
