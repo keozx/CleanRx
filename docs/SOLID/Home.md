@@ -38,5 +38,23 @@ Liskov Substitution principle
 # I
 Interface segregation principle
 
+- Decorators and Adapters shine when extending interfaces
+- Avoid becoming large subsytem facades in favor of adaptability
+- Split interfaces by their implementations dependencies
+
 # D
 Dependency inversion principle
+
+- Defines how to provide abstractions that both high-level modules and low-level modules can mutually depend on.
+- Avoid needles indirection when proper abstractions are created for better code comprehension, maintainability and extensibility.
+
+# Dependency Injection
+
+- Glues together the SOLID code practices.
+- Constructor injection, Property Injection (May be used a lot in Builder pattern for unit tests), Method Injection
+- Inversion of Control containers, Poor Man's DI (Pure DI?)
+- Service Locator anti-pattern. Skyhooks!
+    - How can you tell what dependencies a class needs? You have to check the class code!
+    - Imagine the unit testing construction nightmares
+    - Circumvents a new problem to be solved when is not needed. Preconditions? Can't happen.
+- Illegitimate Injection. When empty constructor makes up for Entourage anti-pattern (depend on implementations), commonly used for unit testing support.
