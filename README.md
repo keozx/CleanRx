@@ -5,6 +5,9 @@ Clean Architecture Guidance to implement Clean Architecture on .NET Platforms wi
 
 I want to close the existing gap on having a guidance for real world implementation of Clean Architecture in .NET platforms, specially when using Xamarin and with Reactive paradigm. Also to promote best practices on adaptive code and SOLID principles as it grows. I am a strong believer that these practices and architecture allow us to write scalable, testable, adaptable and maintainable applications.
 
+I rant about the possible reasons we fail to implement SOLID and company successfully in my blog's book review on Adaptive Code: 
+https://www.jorgecastro.dev/posts/book-review-adaptive-code-agile-coding-with-design-patterns-and-solid-principles-4c82/
+
 ## Inspiration
 
 CleanRx for .NET is inspired in other efforts on using modern Clean Architecture and SOLID principles in other platforms and general best practices in .NET / C#. I'll give credit as much as I can but if you find something should be referenced properly let me know. The ideas exposed here and the samples will try to be original and evolve as my understanding of the concepts and practical experiences mature. However, I'm using as base any public resource I can find and synthesize concepts based on my readings taking the best of each one I have came across with regarding this subject.
