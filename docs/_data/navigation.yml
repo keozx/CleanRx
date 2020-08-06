@@ -1,0 +1,9 @@
+main:
+  - title: "Design Patterns"
+    url: /design_patterns/
+  - title: "SOLID"
+    url: /solid/
+  - title: "Testing"
+    url: /testing/
+  - title: "UI Patterns"
+    url: /ui_patterns/

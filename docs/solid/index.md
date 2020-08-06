@@ -1,3 +1,7 @@
+---
+layout: single
+---
+
 # S 
 ## Single responsability principle
 
