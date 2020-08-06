@@ -1,14 +1,20 @@
+---
+layout: single
+sidebar:
+  nav: "docs"
+---
+
 ## In a nutshell
 
 Similar to adapter, but decorator takes dependency of the decorator object instead of inheritance, but must implement the interface, and thus can extend (decorate) it's functionality.
 
-https://www.dotnettricks.com/learn/designpatterns/decorator-design-pattern-dotnet 
+[](https://www.dotnettricks.com/learn/designpatterns/decorator-design-pattern-dotnet)
 
 ## Composite pattern specialization
 
 - Allows you to treat many instances of an interface as if they were just one instance, manages an internal collection of instances to enable this. You can chain them as they implement the same interface being decorated.
 
-https://dofactory.com/net/composite-design-pattern
+[](https://dofactory.com/net/composite-design-pattern)
 
 ## Predicate decorators
 

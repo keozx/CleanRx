@@ -1,3 +1,9 @@
+---
+layout: single
+sidebar:
+  nav: "docs"
+---
+
 ### Duck-Typing
 
 Example: Enumerable duck typing in foreach

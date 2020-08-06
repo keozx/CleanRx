@@ -7,3 +7,17 @@ main:
     url: /testing/
   - title: "UI Patterns"
     url: /ui_patterns/
+
+docs:
+  - title: Design Patterns
+    children:
+      - title: "Adapater Pattern"
+        url: /design_patterns/adapter/
+      - title: "Decorator Pattern"
+        url: /design_patterns/decorator/
+      - title: "Null Object Pattern"
+        url: /design_patterns/null/
+      - title: "Specialized Interface Patterns"
+        url: /design_patterns/interface/
+      - title: "Strategy Pattern"
+        url: /design_patterns/strategy/      
