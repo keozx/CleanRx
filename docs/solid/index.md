@@ -1,5 +1,6 @@
 ---
 layout: single
+toc: true
 ---
 
 # S 
@@ -19,7 +20,7 @@ When there are no extension points, clients are forced to change.
 Balance extension with *predicted variation*, apply where requirements unclear, changeable or difficult to implement. Predicted lack of variation avoids *speculative generality* where there is no domain variability and rigidly defined across layers of dependency.
 
 # L
-Liskov Substitution principle
+## Liskov Substitution principle
 
 ### Contract rules
 - *Preconditions* cannot be strenthened in a subtype.
@@ -40,14 +41,14 @@ Liskov Substitution principle
     - Different implementations should not throw different exceptions so clients have should not know each new exception introduced, unify with common base exceptions.
 
 # I
-Interface segregation principle
+## Interface segregation principle
 
 - Decorators and Adapters shine when extending interfaces
 - Avoid becoming large subsytem facades in favor of adaptability
 - Split interfaces by their implementations dependencies
 
 # D
-Dependency inversion principle
+## Dependency inversion principle
 
 - Defines how to provide abstractions that both high-level modules and low-level modules can mutually depend on.
 - Avoid needles indirection when proper abstractions are created for better code comprehension, maintainability and extensibility.
