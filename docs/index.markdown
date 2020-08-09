@@ -16,6 +16,28 @@ excerpt: "Clean Architecture Guidance to implement Clean Architecture on .NET Pl
 classes:
   - landing
   - dark-theme
+feature_row:
+  - image_path: /assets/images/unsplash-gallery-image-2-th.jpg
+    alt: "Example Code"
+    title: "Example Code"
+    excerpt: 'Explore code examples using SOLID and company.'
+    url: "https://github.com/keozx/CleanRx/tree/master/src/samples"
+    btn_label: "Explore"
+    btn_class: "btn--primary"
+  - image_path: /assets/images/unsplash-gallery-image-2-th.jpg
+    alt: "SOLID"
+    title: "Design Principles"
+    excerpt: 'What SOLID stands for and close related design principles.'
+    url: "/solid/"
+    btn_label: "Explore"
+    btn_class: "btn--primary"
+  - image_path: /assets/images/unsplash-gallery-image-2-th.jpg
+    alt: "Testing"
+    title: "Testing"
+    excerpt: 'Testing guidance on TDD and patterns explained.'
+    url: "/testing/"
+    btn_label: "Explore"
+    btn_class: "btn--primary"
 ---
 
 
@@ -25,6 +47,8 @@ I want to close the existing gap on having a guidance for real world implementat
 
 I rant about the possible reasons we fail to implement SOLID and company successfully in my blog's [book review on Adaptive Code](
 https://www.jorgecastro.dev/posts/book-review-adaptive-code-agile-coding-with-design-patterns-and-solid-principles-4c82/)
+
+{% include feature_row %}
 
 ## Inspiration
 

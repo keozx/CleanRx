@@ -1,5 +1,8 @@
 ---
 layout: single
+toc: true
+toc_label: "Testing Guidance"
+toc_icon: "cog"
 ---
 
 # Test Driven Development
@@ -20,17 +23,17 @@ TDD
 
 ### Testing pyramid
 
-* Manual tests
-* * Acceptance tests (UI automation)
-* * * Integration tests (black box)
-* * * * Unit tests
+\ Manual tests  
+\ \ Acceptance tests (UI automation)  
+\ \ \ Integration tests (black box)  
+\ \ \ \ Unit tests  
 
 Hourglass - When it has too many integration and acceptance tests, code is difficult to change.
 
 Snowcone - When the majority of testing effort is manual, this indicates that you have an untestable codebase.
 
 ### Testing Quadrant (Gojko Adzic)
-https://gojko.net/2013/10/21/lets-break-the-agile-testing-quadrants/
+[Testing Quadrants](https://gojko.net/2013/10/21/lets-break-the-agile-testing-quadrants/)
 
 ## Patterns
 
@@ -42,6 +45,4 @@ https://gojko.net/2013/10/21/lets-break-the-agile-testing-quadrants/
 
 Reference:
 (1) McLean, H. G. (2017). *Adaptive Code: Agile coding with design patterns and SOLID principles, 2nd Edition*. Microsoft Press
-
-![class](class.svg)
 

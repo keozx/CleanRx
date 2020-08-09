@@ -4,7 +4,7 @@ main:
   - title: "SOLID"
     url: /solid/
   - title: "Testing"
-    url: /testing/
+    url: /tdd/
   - title: "UI Patterns"
     url: /ui_patterns/
 
