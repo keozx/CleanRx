@@ -7,31 +7,33 @@ title: "CleanRx"
 author_profile: true
 header:
   overlay_color: "#000"
-  overlay_image: ""
+  overlay_image: "/assets/images/back.png"
   overlay_filter: 0.5
   actions:
     - label: "Show me code!"
       url: "https://github.com/keozx/CleanRx"
-excerpt: "Clean Architecture Guidance to implement Clean Architecture on .NET Platforms with a focus on Mobile and help of Reactive Programming"
+excerpt: "Clean Architecture & Design Guidance for .NET with a focus on Mobile and help of Reactive Programming"
 classes:
   - landing
   - dark-theme
+intro: 
+  - excerpt: '> *I believe the main reason behind bad software design existance is we fail to communicate good software design. - Jorge Castro*'
 feature_row:
-  - image_path: /assets/images/unsplash-gallery-image-2-th.jpg
+  - image_path: /assets/images/Thumbnail600_400/1.png
     alt: "Example Code"
     title: "Example Code"
     excerpt: 'Explore code examples using SOLID and company.'
     url: "https://github.com/keozx/CleanRx/tree/master/src/samples"
     btn_label: "Explore"
     btn_class: "btn--primary"
-  - image_path: /assets/images/unsplash-gallery-image-2-th.jpg
+  - image_path: /assets/images/Thumbnail600_400/2.png
     alt: "SOLID"
     title: "Design Principles"
     excerpt: 'What SOLID stands for and close related design principles.'
     url: "/solid/"
     btn_label: "Explore"
     btn_class: "btn--primary"
-  - image_path: /assets/images/unsplash-gallery-image-2-th.jpg
+  - image_path: /assets/images/Thumbnail600_400/3.png
     alt: "Testing"
     title: "Testing"
     excerpt: 'Testing guidance on TDD and patterns explained.'
@@ -47,6 +49,8 @@ I want to close the existing gap on having a guidance for real world implementat
 
 I rant about the possible reasons we fail to implement SOLID and company successfully in my blog's [book review on Adaptive Code](
 https://www.jorgecastro.dev/posts/book-review-adaptive-code-agile-coding-with-design-patterns-and-solid-principles-4c82/)
+
+{% include feature_row id="intro" type="center" %}
 
 {% include feature_row %}
 

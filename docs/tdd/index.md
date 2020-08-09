@@ -1,5 +1,6 @@
 ---
 layout: single
+title: "Test Patterns"
 toc: true
 toc_label: "Testing Guidance"
 toc_icon: "cog"

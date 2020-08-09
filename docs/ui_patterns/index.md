@@ -1,5 +1,6 @@
 ---
 layout: single
+title: "UI Patterns"
 classes: wide
 ---
 

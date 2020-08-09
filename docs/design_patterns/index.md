@@ -1,5 +1,6 @@
 ---
 layout: single
+title: "Design Patterns"
 sidebar:
   nav: "docs"
 ---

@@ -1,11 +1,12 @@
 ---
 layout: single
+title: "SOLID"
 toc: true
 toc_label: "SOLID Principles"
 toc_icon: "cog"
 ---
 
-# S 
+# S
 ## Single responsability principle
 
 One responsability and one reason to change.
