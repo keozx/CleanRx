@@ -3,12 +3,21 @@
 # To modify the layout, see https://jekyllrb.com/docs/themes/#overriding-theme-defaults
 
 layout: splash
+title: "CleanRx"
 author_profile: true
+header:
+  overlay_color: "#000"
+  overlay_image: ""
+  overlay_filter: 0.5
+  actions:
+    - label: "Show me code!"
+      url: "https://github.com/keozx/CleanRx"
+excerpt: "Clean Architecture Guidance to implement Clean Architecture on .NET Platforms with a focus on Mobile and help of Reactive Programming"
+classes:
+  - landing
+  - dark-theme
 ---
 
-
-
-Clean Architecture Guidance to implement Clean Architecture on .NET Platforms with a focus on Mobile and help of Reactive Programming
 
 ## Why?
 

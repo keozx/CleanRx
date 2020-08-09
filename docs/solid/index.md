@@ -1,6 +1,8 @@
 ---
 layout: single
 toc: true
+toc_label: "SOLID Principles"
+toc_icon: "cog"
 ---
 
 # S 
