@@ -1,5 +1,5 @@
 # CleanRx
-Clean Architecture Guidance to implement Clean Architecture on .NET Platforms with a focus on Mobile and help of Reactive Programming
+Clean Architecture & Design Guidance for .NET with a focus on Mobile and help of Reactive Programming
 
 Documentation site can be found here: https://keozx.github.io/CleanRx/
 
@@ -9,6 +9,8 @@ I want to close the existing gap on having a guidance for real world implementat
 
 I rant about the possible reasons we fail to implement SOLID and company successfully in my blog's book review on Adaptive Code: 
 https://www.jorgecastro.dev/posts/book-review-adaptive-code-agile-coding-with-design-patterns-and-solid-principles-4c82/
+
+>*I believe the main reason behind bad software design existance is we fail to communicate good software design.*
 
 ## Inspiration
 
