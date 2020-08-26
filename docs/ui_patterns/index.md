@@ -11,7 +11,7 @@ toc_icon: "cog"
 
 Here we will discuss different Command pattern approaches when developing UI user interactions through ICommand interface. 
 
-It is important to define each approach differences so when it is adopted in an organization is easier to break barriers of adopting one framework or the other or part of them. Most organizations will stick to one framework but that is seldom efficient when you need for the best tool for the job. In my opinion, contrary to common belief, mixing up frameworks is actually a good thing, and proper dependency management should remove the clutter around having many tools in a single code base.
+It is important to define each approach differences so when it is adopted in an organization is easier to break barriers of adopting one framework or the other or part of them. Most organizations will stick to one framework but that is seldom efficient when you need for the best tool for the job. In my opinion, contrary to common belief, mixing up frameworks is actually a good thing, linking and proper dependency management should remove the clutter around having many tools in a single code base.
 
 ## Command framework comparison
 
