@@ -17,4 +17,6 @@ Allows to delegate null checking to the service class instead of the client, avo
 * IsNull property anti-pattern, defeats the purpose of the pattern
 
 Reference:
-(1) McLean, H. G. (2017). *Adaptive Code: Agile coding with design patterns and SOLID principles, 2nd Edition*. Microsoft Press
+
+McLean, H. G. (2017). *Adaptive Code: Agile coding with design patterns and SOLID principles, 2nd Edition*. Microsoft Press
+{: .notice}

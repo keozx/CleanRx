@@ -45,5 +45,7 @@ Snowcone - When the majority of testing effort is manual, this indicates that yo
 
 
 Reference:
-(1) McLean, H. G. (2017). *Adaptive Code: Agile coding with design patterns and SOLID principles, 2nd Edition*. Microsoft Press
+
+McLean, H. G. (2017). *Adaptive Code: Agile coding with design patterns and SOLID principles, 2nd Edition*. Microsoft Press
+{: .notice}
 

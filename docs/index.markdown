@@ -22,7 +22,7 @@ feature_row:
   - image_path: /assets/images/Thumbnail600_400/1.png
     alt: "Example Code"
     title: "Example Code"
-    excerpt: 'Explore code examples using SOLID and company.'
+    excerpt: 'Explore code examples using SOLID and company. (Soon!)'
     url: "https://github.com/keozx/CleanRx/tree/master/src/samples"
     btn_label: "Explore"
     btn_class: "btn--primary"

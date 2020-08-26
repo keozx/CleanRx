@@ -66,3 +66,7 @@ Balance extension with *predicted variation*, apply where requirements unclear, 
     - Imagine the unit testing construction nightmares
     - Circumvents a new problem to be solved when is not needed. Preconditions? Can't happen.
 - Illegitimate Injection. When empty constructor makes up for Entourage anti-pattern (depend on implementations), commonly used for unit testing support.
+
+Reference:
+
+>McLean, H. G. (2017). *Adaptive Code: Agile coding with design patterns and SOLID principles, 2nd Edition*. Microsoft Press

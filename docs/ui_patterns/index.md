@@ -2,6 +2,9 @@
 layout: single
 title: "UI Patterns"
 classes: wide
+toc: true
+toc_label: "UI Patterns"
+toc_icon: "cog"
 ---
 
 # Command Pattern
@@ -17,28 +20,34 @@ The intent here is to compare different Command frameworks out there, most of th
 Feature | XF Command | DelegateCommand | AsyncCommand | ReactiveCommand
 ------------------- | --------- | --- | --- | ---
 Create from Task (not async void) | ❌ | ❌ | ✔️ | ✔️ 
-Catches unhandled exceptions | ❌ | ❌ | ✔️ | ✔️ 
-Observes boolean changes for "CanExecute" behavior through INPC (not RaiseCanExecute) | ❌ | ✔️ | ❌  | ✔️ 
+Retrieve unhandled exceptions | ❌ | ❌ | ✔️ | ✔️ 
+Observes boolean changes for "CanExecute" behavior through INPC (not RaiseCanExecute) | ❌ | ✔️ | ❌  | ✔️ *WhenAnyValue
 Observes IObservable ticks for "CanExecute" behavior | ❌ | ❌ | ❌ | ✔️ 
 Guards against double execution (double tap) | ❌ | ❌ | ❌ | ✔️ 
 Allows to retrieve a T result at end of execution | ❌ | ❌ | ❌ | ✔️ 
 
 
-### Xamarin.Forms **Command**
-Based on above comparison, is there any reason to use XF Command? well only for a quick POC or if all you are really going to do is clicking a button and do something simple that does not require any other feature. However there may be some memory save if you are having a lot of simple buttons in a screen.
-[](https://docs.microsoft.com/en-us/dotnet/api/xamarin.forms.command-1?view=xamarin-forms)
+### Xamarin.Forms *Command*
+Based on above comparison, is there any reason to use XF Command? well only for a quick POC or if all you are really going to do is clicking a button and do something simple that does not require any other feature. However there may be some memory save if you are having a lot of simple buttons in a screen. A benchmark comparison coming soon.
+[Xamarin Docs](https://docs.microsoft.com/en-us/dotnet/api/xamarin.forms.command-1?view=xamarin-forms)
 
-### Prism **DelegateCommand**
+### Prism *DelegateCommand*
 
-DelegateCommand is a better Command implementation because allows observing a boolean for CanExecute, but other than that feels like a half-baked implementation of ICommand, not really intended in my opinion for business critical applications.
+DelegateCommand is a better Command implementation because allows observing a boolean for CanExecute, but other than that, feels like a half-baked implementation of ICommand, not really intended in my opinion for use in enterprise apps. [Prism Docs](https://prismlibrary.com/docs/commanding.html)
 
-### AsyncAwaitBestPractices **AsyncCommand**
+### AsyncAwaitBestPractices *AsyncCommand*
 
 AsyncCommand comes from package [Async Await Best Practices](https://github.com/brminnick/AsyncAwaitBestPractices) which apart from giving an implementation of ICommand with error handling, prevents the use of async void. Also the library provides for other good stuff like SafeFireAndForget and WeakEventManager.
-Unfortunately it does not provide CanExecute observer pattern like DelegateCommand.
 
-### ReactiveUI **ReactiveCommand**
+Unfortunately it does not provide CanExecute observer pattern like DelegateCommand, but is capable of catching exception if you provide an Error Handler parameter when creating the Command.
+
+### ReactiveUI *ReactiveCommand*
 
 From all, from what you can see in the table [ReactiveCommand](https://www.reactiveui.net/docs/handbook/commands/) is your swiss army knife implementation of ICommand, fully featured and rock solid, you can't go wrong with it, the flexibility of IObservable as consumer and implementer gives us ultimate adaptability. 
 
-One thing that shines from the rest is also that it has built-in execution blocking so it won't allow double tap or double execution if already fired.
+ReactiveCommand is also the only one capable of providing a generic T result, additional to the parameter, to allow to retrieve the execution output, this is useful for Unit Testing because oftenly you would want to assert the outcome of an operation starting with the click of a button end to end.
+
+One thing that shines from the rest is also that it has built-in execution blocking so it won't allow double tap or double execution if already fired, whether is a Task or an Action.
+
+\*While not directly capable of observing a boolean property, what RxUI Command offers is accepting the more robust *IObservable* type parameter for CanExecute behavior. You have to take an extra step to use *WhenAnyValue()* extension to wrap the INPC events from a property into an observable but in a real world application you rarely just watch for a single boolean, so this is handy when having to watch multiple states at once and calculate whether or not the Command should be enabled or disabled.
+{: .notice--info}

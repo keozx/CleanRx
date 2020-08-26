@@ -44,4 +44,6 @@ public ComponentClient(IComponent component) // instead of Lazy<T>
 - Functionality can be added to an existing class that implements a certain interface, and the decorator also acts as an implementation of the interface
 
 Reference:
-(1) McLean, H. G. (2017). *Adaptive Code: Agile coding with design patterns and SOLID principles, 2nd Edition*. Microsoft Press
+
+McLean, H. G. (2017). *Adaptive Code: Agile coding with design patterns and SOLID principles, 2nd Edition*. Microsoft Press
+{: .notice}
