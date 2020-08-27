@@ -46,7 +46,7 @@ Unfortunately it does not provide CanExecute observer pattern like DelegateComma
 
 ### ReactiveUI *ReactiveCommand*
 
-From all, from what you can see in the table [ReactiveCommand](https://www.reactiveui.net/docs/handbook/commands/) is your swiss army knife implementation of ICommand, fully featured and rock solid, you can't go wrong with it, the flexibility of IObservable as consumer and implementer gives us ultimate adaptability. 
+From what you can see in the table [ReactiveCommand](https://www.reactiveui.net/docs/handbook/commands/) is your swiss army knife implementation of ICommand, fully featured and rock solid, you can't go wrong with it, the flexibility of IObservable as consumer and implementer gives us ultimate adaptability. 
 
 ReactiveCommand is also the only one capable of providing a generic T result, additional to the default parameter in ICommand, to allow to retrieve the execution output, this is useful for Unit Testing because oftenly you would want to assert the outcome of an operation starting with the click of a button end to end.
 
