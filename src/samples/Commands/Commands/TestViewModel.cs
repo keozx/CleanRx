@@ -71,23 +71,6 @@ namespace Commands
                 {
                     Debug.WriteLine($"Expected Exception handled! {ex}");
                 }
-
-                /*await Task.Run(() => ImportantTask(obj).ConfigureAwait(false))
-                    .ContinueWith(t => 
-                    {
-                        if (t.IsFaulted)
-                        {
-                            Debug.WriteLine($"Expected Exception handled! {t.Exception}");
-                        }
-                        else if (t.IsCompleted)
-                        {
-                            Debug.WriteLine($"Result is {t.Result.GetAwaiter().GetResult().Type}");
-                        }
-                        // If you did this you would run into exception, shows our point above.
-                        // Enabled = true;
-                        _device.BeginInvokeOnMainThread(() => Enabled = true);
-                        
-                    });*/
             }
             catch (Exception ex)
             {

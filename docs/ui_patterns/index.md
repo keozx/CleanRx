@@ -19,7 +19,7 @@ The intent here is to compare different Command frameworks out there, most of th
 
 Feature | XF Command | DelegateCommand | AsyncCommand | ReactiveCommand
 ------------------- | --------- | --- | --- | ---
-Executes a simple bindable Action | ✔️ | ✔️ | ✔️ | ✔️ \<T\>
+Executes a simple bindable Action\<T\> | ✔️ | ✔️ | ✔️ | ✔️ 
 Create from Task\<T\> (not async void) | ❌ | ❌ | ✔️ | ✔️ 
 Retrieve unhandled exceptions | ❌ | ❌ | ✔️ | ✔️ 
 Observes boolean changes for "CanExecute" behavior through INPC (not RaiseCanExecute) | ❌ | ✔️ | ❌  | ✔️ *WhenAnyValue
