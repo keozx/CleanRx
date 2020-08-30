@@ -10,6 +10,7 @@ namespace Commands
             var vm = new TestViewModel();
             Content = new StackLayout
             {
+                Spacing = 10,
                 Children = { 
                     new Button { Text = "Forms Command" }
                         .Width(50)
@@ -20,7 +21,16 @@ namespace Commands
                             {
                                 Type = "Forms",
                             }),
-                    new Label { Text = "Enabled Command?" },
+                    new Button { Text = "Delegate Command" }
+                        .Width(50)
+                        .BindCommand(
+                            nameof(vm.DelegateCommand),
+                            vm,
+                            parameterSource: new Parameter
+                            {
+                                Type = "DelegateCommand",
+                            }),
+                    new Label { Text = "Enable Commands?" },
                     new Switch()
                         .Bind(nameof(vm.Enabled)),
                 },

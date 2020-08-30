@@ -37,7 +37,7 @@ Based on above comparison, is there any reason to use XF Command? well only for 
 
 ### Prism *DelegateCommand*
 
-DelegateCommand is a better Command implementation because allows observing a boolean for CanExecute, but other than that, feels like a half-baked implementation of ICommand, not really intended in my opinion for use in enterprise apps. [Prism Docs](https://prismlibrary.com/docs/commanding.html)
+DelegateCommand is a better Command implementation because allows observing a boolean or several booleans to execute the function you pass to CanExecute, but other than that, feels like a half-baked implementation of ICommand, not really intended for other advanced scenarios. [Prism Docs](https://prismlibrary.com/docs/commanding.html)
 
 ### AsyncAwaitBestPractices *AsyncCommand*
 

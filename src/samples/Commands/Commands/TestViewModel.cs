@@ -3,6 +3,7 @@ using System.Diagnostics;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Input;
+using Prism.Commands;
 using Prism.Mvvm;
 using Prism.Services;
 using Xamarin.Forms;
@@ -40,6 +41,12 @@ namespace Commands
             _device = new DeviceService();
             _device.StartTimer(TimeSpan.FromSeconds(3), OnEvent);
             FormsCommand = new Command<Parameter>(OnForms, CanExecute);
+            DelegateCommand = new DelegateCommand<Parameter>(OnForms, CanExecute)
+                .ObservesProperty(() => Enabled)
+                .ObservesProperty(() => EnabledFromEvent);
+            /* ... and this will cause an exception, is not supported, and it wouldn't take our parameter.
+             .ObservesCanExecute(() => Enabled && EnabledFromEvent);
+             */
         }
 
         private bool OnEvent()
@@ -71,6 +78,13 @@ namespace Commands
                 {
                     Debug.WriteLine($"Expected Exception handled! {ex}");
                 }
+                finally
+                {
+                    // If you did this you would run into threading exception,
+                    // shows our point above.
+                    // Enabled = true;
+                    _device.BeginInvokeOnMainThread(() => Enabled = true);
+                }
             }
             catch (Exception ex)
             {
@@ -83,9 +97,6 @@ namespace Commands
         private void HandleResult(Result result)
         {
             Debug.WriteLine($"Result is {result.Type}");
-            // If you did this you would run into exception, shows our point above.
-            // Enabled = true;
-            _device.BeginInvokeOnMainThread(() => Enabled = true);
         }
 
         private static async Task<Result> ImportantTask(Parameter parameter)
@@ -102,5 +113,6 @@ namespace Commands
         }
 
         public ICommand FormsCommand { get;}
+        public ICommand DelegateCommand { get;}
     }
 }
