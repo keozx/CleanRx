@@ -34,6 +34,7 @@ Subscribe to Completion and executes handler for \<T\> result | ❌ | ❌ | ❌ 
 Based on above comparison, is there any reason to use XF Command? well only for a quick POC or if all you are really going to do is clicking a button and do something simple that does not require any other feature. However there may be some memory save if you are having a lot of simple buttons in a screen. A benchmark comparison coming soon.
 [Xamarin Docs](https://docs.microsoft.com/en-us/dotnet/api/xamarin.forms.command-1?view=xamarin-forms)
 
+
 ### Prism *DelegateCommand*
 
 DelegateCommand is a better Command implementation because allows observing a boolean for CanExecute, but other than that, feels like a half-baked implementation of ICommand, not really intended in my opinion for use in enterprise apps. [Prism Docs](https://prismlibrary.com/docs/commanding.html)
@@ -52,5 +53,5 @@ ReactiveCommand is also the only one capable of providing a generic T result, ad
 
 One thing that shines from the rest is also that it has built-in execution blocking so it won't allow double tap or double execution if already fired, whether is a Task or an Action. Also, you can retrieve CanExecute and IsExecuting states to have better awareness for other components that may need to know execution state.
 
-\*While not directly capable of observing a boolean property, what RxUI Command offers is accepting the more robust *IObservable* type parameter for CanExecute behavior. You have to take an extra step to use *WhenAnyValue()* extension to wrap the INPC events from a property into an observable but in a real world application you rarely just watch for a single boolean, so this is handy when having to watch multiple states at once and calculate whether or not the Command should be enabled or disabled.
+\*While not directly capable of observing a boolean property, what RxUI Command offers is accepting the more robust *IObservable* type parameter for CanExecute behavior. You have to take an extra step to use *WhenAnyValue()* extension to wrap the INPC events from a property into an observable but in a real world application you rarely just watch for a single source, you could chain different observables here without having to notify of Can Execute has changed, so this is handy when having to watch multiple states at once and calculate whether or not the Command should be enabled or disabled.
 {: .notice--info}
