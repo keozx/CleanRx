@@ -10,7 +10,7 @@ using Xamarin.Forms;
 
 namespace Commands
 {
-    public class TestViewModel : BindableBase
+    public class FormsCmdViewModel : BindableBase
     {
         private readonly DeviceService _device;
         private bool _enabled;
@@ -24,44 +24,38 @@ namespace Commands
             }
         }
         
-        private bool _enabledfromEvent;
+        private bool _enabledFromEvent;
 
         private bool EnabledFromEvent
         {
-            get => _enabledfromEvent;
+            get => _enabledFromEvent;
             set
             {
-                SetProperty(ref _enabledfromEvent, value);
+                SetProperty(ref _enabledFromEvent, value);
                 (FormsCommand as Command)?.ChangeCanExecute();
             }
         }
 
-        public TestViewModel()
+        public FormsCmdViewModel()
         {
             _device = new DeviceService();
             _device.StartTimer(TimeSpan.FromSeconds(3), OnEvent);
-            FormsCommand = new Command<Parameter>(OnForms, CanExecute);
-            DelegateCommand = new DelegateCommand<Parameter>(OnForms, CanExecute)
-                .ObservesProperty(() => Enabled)
-                .ObservesProperty(() => EnabledFromEvent);
-            /* ... and this will cause an exception, is not supported, and it wouldn't take our parameter.
-             .ObservesCanExecute(() => Enabled && EnabledFromEvent);
-             */
+            FormsCommand = new Command<Parameter>(OnClickAsyncVoid, CanExecute);
         }
 
         private bool OnEvent()
         {
-            EnabledFromEvent = !_enabledfromEvent;
-            Debug.WriteLine($"Event triggered: {_enabledfromEvent}");
+            EnabledFromEvent = !_enabledFromEvent;
+            Debug.WriteLine($"Event triggered: {_enabledFromEvent}");
             return true;
         }
 
-        bool CanExecute(Parameter obj)
+        private bool CanExecute(Parameter obj)
         {
             return Enabled && EnabledFromEvent;
         }
 
-        private async void OnForms(Parameter obj)
+        private async void OnClickAsyncVoid(Parameter obj)
         {
             // We have to await the Task and try/catch this async void,
             // otherwise we would not catch exceptions on the ImportantTask handler, 
@@ -94,7 +88,7 @@ namespace Commands
             }
         }
 
-        private void HandleResult(Result result)
+        private static void HandleResult(Result result)
         {
             Debug.WriteLine($"Result is {result.Type}");
         }
@@ -113,6 +107,5 @@ namespace Commands
         }
 
         public ICommand FormsCommand { get;}
-        public ICommand DelegateCommand { get;}
     }
 }
