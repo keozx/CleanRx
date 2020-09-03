@@ -9,6 +9,7 @@ namespace Commands
         {
             var formsVm = new FormsCmdViewModel();
             var delegateVm = new DelegateCmdViewModel();
+            var asyncVm = new AsyncCmdViewModel();
             Content = new StackLayout
             {
                 Spacing = 10,
@@ -57,6 +58,29 @@ namespace Commands
                                 new Label { Text = "Enable Command?" },
                                 new Switch()
                                     .Bind(nameof(delegateVm.Enabled)),
+                            },
+                        },
+                    },
+                    new ContentView
+                    { 
+                        BindingContext = asyncVm,
+                        Content = new StackLayout
+                        {
+                            BindingContext = asyncVm,
+                            Children =
+                            {
+                                new Button { Text = "Async Command" }
+                                    .Width(50)
+                                    .BindCommand(
+                                        nameof(asyncVm.AsynCommand),
+                                        asyncVm,
+                                        parameterSource: new Parameter
+                                        {
+                                            Type = "AsyncCommand",
+                                        }),
+                                new Label { Text = "Enable Command?" },
+                                new Switch()
+                                    .Bind(nameof(asyncVm.Enabled)),
                             },
                         },
                     },

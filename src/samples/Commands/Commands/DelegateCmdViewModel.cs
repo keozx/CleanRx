@@ -5,7 +5,6 @@ using System.Windows.Input;
 using Prism.Commands;
 using Prism.Mvvm;
 using Prism.Services;
-using Xamarin.Forms;
 
 namespace Commands
 {

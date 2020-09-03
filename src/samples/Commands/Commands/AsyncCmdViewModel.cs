@@ -2,26 +2,27 @@
 using System.Diagnostics;
 using System.Threading.Tasks;
 using System.Windows.Input;
+using AsyncAwaitBestPractices.MVVM;
 using Prism.Mvvm;
 using Prism.Services;
-using Xamarin.Forms;
 
 namespace Commands
 {
-    public class FormsCmdViewModel : BindableBase
+    public class AsyncCmdViewModel : BindableBase
     {
         private readonly DeviceService _device;
         private bool _enabled;
+
         public bool Enabled
         {
             get => _enabled;
             set
             {
                 SetProperty(ref _enabled, value);
-                (FormsCommand as Command)?.ChangeCanExecute();
+                (AsynCommand as AsyncCommand<Parameter>)?.RaiseCanExecuteChanged();
             }
         }
-        
+
         private bool _enabledFromEvent;
 
         private bool EnabledFromEvent
@@ -30,15 +31,18 @@ namespace Commands
             set
             {
                 SetProperty(ref _enabledFromEvent, value);
-                (FormsCommand as Command)?.ChangeCanExecute();
+                (AsynCommand as AsyncCommand<Parameter>)?.RaiseCanExecuteChanged();
             }
         }
 
-        public FormsCmdViewModel()
+        public AsyncCmdViewModel()
         {
             _device = new DeviceService();
             _device.StartTimer(TimeSpan.FromSeconds(3), OnEvent);
-            FormsCommand = new Command<Parameter>(OnClickAsyncVoid, CanExecute);
+            AsynCommand = new AsyncCommand<Parameter>(
+                OnClickAsyncTask,
+                CanExecute,
+                OnError);
         }
 
         private bool OnEvent()
@@ -48,42 +52,40 @@ namespace Commands
             return true;
         }
 
-        private bool CanExecute(Parameter obj)
+        private bool CanExecute(object obj)
         {
             return Enabled && EnabledFromEvent;
         }
 
-        private async void OnClickAsyncVoid(Parameter obj)
+        private async Task OnClickAsyncTask(Parameter obj)
         {
-            // We have to await the Task and try/catch this async void,
-            // otherwise we would not catch exceptions on the ImportantTask handler, 
-            // like when we don't change Enabled in the Main Thread, then our app wouldn't make a noise!
+            Enabled = false;
             try
             {
-                Enabled = false;
-                try
-                {
-                    var result = await ImportantTask(obj).ConfigureAwait(false);
-                    HandleResult(result);
-                }
-                catch (InvalidOperationException ex)
-                {
-                    Debug.WriteLine($"Expected Exception handled! {ex}");
-                }
-                finally
-                {
-                    // If you did this you would run into threading exception,
-                    // shows our point above.
-                    // Enabled = true;
-                    _device.BeginInvokeOnMainThread(() => Enabled = true);
-                }
+                // Ideally, we would return the Task instead of awaiting here,
+                // but we would not be able to retrieve the Result at Command level
+                var result = await ImportantTask(obj).ConfigureAwait(false);
+                HandleResult(result);
             }
-            catch (Exception ex)
+            catch (InvalidOperationException ex)
             {
-                Debug.WriteLine($"Exception from handler! {ex}");
-                // This is an unrecoverable state of the app!
-                throw;
+                Debug.WriteLine($"Expected Exception handled! {ex}");
             }
+            finally
+            {
+                // If you did this you would run into threading exception,
+                // shows our point above.
+                // Enabled = true;
+                _device.BeginInvokeOnMainThread(() => Enabled = true);
+            }
+        }
+
+
+        private void OnError(Exception ex)
+        {
+            Debug.WriteLine($"Exception from handler! {ex}");
+            // This is an unrecoverable state of the app!
+            throw ex;
         }
 
         private static void HandleResult(Result result)
@@ -103,7 +105,7 @@ namespace Commands
             }
             return new Result{ Type = parameter?.Type };
         }
-
-        public ICommand FormsCommand { get;}
+        
+        public ICommand AsynCommand { get;}
     }
 }
