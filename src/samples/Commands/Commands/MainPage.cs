@@ -10,6 +10,7 @@ namespace Commands
             var formsVm = new FormsCmdViewModel();
             var delegateVm = new DelegateCmdViewModel();
             var asyncVm = new AsyncCmdViewModel();
+            var rxVm = new ReactiveCmdViewModel();
             Content = new StackLayout
             {
                 Spacing = 10,
@@ -25,6 +26,7 @@ namespace Commands
                             {
                                 new Button { Text = "Forms Command" }
                                     .Width(50)
+                                    .Height(50)
                                     .BindCommand(
                                         nameof(formsVm.FormsCommand),
                                         formsVm,
@@ -48,6 +50,7 @@ namespace Commands
                             {
                                 new Button { Text = "Delegate Command" }
                                     .Width(50)
+                                    .Height(50)
                                     .BindCommand(
                                         nameof(delegateVm.DelegateCommand),
                                         delegateVm,
@@ -71,8 +74,9 @@ namespace Commands
                             {
                                 new Button { Text = "Async Command" }
                                     .Width(50)
+                                    .Height(50)
                                     .BindCommand(
-                                        nameof(asyncVm.AsynCommand),
+                                        nameof(asyncVm.AsyncCommand),
                                         asyncVm,
                                         parameterSource: new Parameter
                                         {
@@ -81,6 +85,30 @@ namespace Commands
                                 new Label { Text = "Enable Command?" },
                                 new Switch()
                                     .Bind(nameof(asyncVm.Enabled)),
+                            },
+                        },
+                    },
+                    new ContentView
+                    { 
+                        BindingContext = rxVm,
+                        Content = new StackLayout
+                        {
+                            BindingContext = rxVm,
+                            Children =
+                            {
+                                new Button { Text = "Reactive Command" }
+                                    .Width(50)
+                                    .Height(50)
+                                    .BindCommand(
+                                        nameof(rxVm.RxCommand),
+                                        rxVm,
+                                        parameterSource: new Parameter
+                                        {
+                                            Type = "ReactiveCommand",
+                                        }),
+                                new Label { Text = "Enable Command?" },
+                                new Switch()
+                                    .Bind(nameof(rxVm.Enabled)),
                             },
                         },
                     },

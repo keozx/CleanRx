@@ -1,14 +1,16 @@
 ﻿using System;
 using System.Diagnostics;
+using System.Reactive.Linq;
 using System.Threading.Tasks;
 using System.Windows.Input;
 using AsyncAwaitBestPractices.MVVM;
 using Prism.Mvvm;
 using Prism.Services;
+using ReactiveUI;
 
 namespace Commands
 {
-    public class AsyncCmdViewModel : BindableBase
+    public class ReactiveCmdViewModel : BindableBase
     {
         private readonly DeviceService _device;
         private bool _enabled;
@@ -19,7 +21,6 @@ namespace Commands
             set
             {
                 SetProperty(ref _enabled, value);
-                (AsyncCommand as AsyncCommand<Parameter>)?.RaiseCanExecuteChanged();
             }
         }
 
@@ -31,18 +32,22 @@ namespace Commands
             set
             {
                 SetProperty(ref _enabledFromEvent, value);
-                (AsyncCommand as AsyncCommand<Parameter>)?.RaiseCanExecuteChanged();
             }
         }
 
-        public AsyncCmdViewModel()
+        public ReactiveCmdViewModel()
         {
             _device = new DeviceService();
             _device.StartTimer(TimeSpan.FromSeconds(3), OnEvent);
-            AsyncCommand = new AsyncCommand<Parameter>(
-                OnClickAsyncTask,
-                CanExecute,
-                OnError);
+            RxCommand = ReactiveCommand
+                .CreateFromTask<Parameter, Result>(
+                    ImportantTask,
+                    CanExecute());
+            RxCommand
+                .Subscribe(HandleResult);
+            RxCommand
+                .ThrownExceptions
+                .Subscribe(OnError);
         }
 
         private bool OnEvent()
@@ -52,40 +57,42 @@ namespace Commands
             return true;
         }
 
-        private bool CanExecute(object obj)
+        private IObservable<bool> CanExecute()
         {
-            return Enabled && EnabledFromEvent;
+            return this.WhenAnyValue(
+                vm => vm.Enabled,
+                vm => vm.EnabledFromEvent,
+                (enabled, enabledEvent) => enabled && enabledEvent);
         }
 
-        private async Task OnClickAsyncTask(Parameter obj)
+        /// <summary>
+        /// You can use this method instead of handling the InvalidOperationException on ThrownExceptions
+        /// </summary>
+        private async Task<Result> OnClickAsyncTask(Parameter obj)
         {
-            Enabled = false;
             try
             {
-                // Ideally, we would return the Task instead of awaiting here,
-                // but we would not be able to retrieve the Result at Command level
-                var result = await ImportantTask(obj).ConfigureAwait(false);
-                HandleResult(result);
+                return await ImportantTask(obj).ConfigureAwait(false);
             }
             catch (InvalidOperationException ex)
             {
                 Debug.WriteLine($"Expected Exception handled! {ex}");
-            }
-            finally
-            {
-                // If you did this you would run into threading exception,
-                // shows our point above.
-                // Enabled = true;
-                _device.BeginInvokeOnMainThread(() => Enabled = true);
+                return default;
             }
         }
 
-
         private void OnError(Exception ex)
         {
-            Debug.WriteLine($"Exception from handler! {ex}");
-            // This is an unrecoverable state of the app!
-            throw ex;
+            if (ex is InvalidOperationException)
+            {
+                Debug.WriteLine($"Expected Exception handled! {ex}");
+            }
+            else
+            {
+                Debug.WriteLine($"Exception from handler! {ex}");
+                // This is an unrecoverable state of the app!
+                RxApp.DefaultExceptionHandler.OnNext(ex);
+            }
         }
 
         private static void HandleResult(Result result)
@@ -106,6 +113,6 @@ namespace Commands
             return new Result{ Type = parameter?.Type };
         }
         
-        public ICommand AsyncCommand { get;}
+        public ReactiveCommand<Parameter, Result> RxCommand { get;}
     }
 }
