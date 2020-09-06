@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Diagnostics;
+using System.Linq.Expressions;
 using System.Reactive.Linq;
 using System.Threading.Tasks;
 using System.Windows.Input;
@@ -59,10 +60,17 @@ namespace Commands
 
         private IObservable<bool> CanExecute()
         {
+            // Mimicking DelegateCommand with WhenAnyValue here:
+            return this.ObservesProperty(
+                () => Enabled,
+                () => EnabledFromEvent);
+    
+            /* Same as this:
             return this.WhenAnyValue(
                 vm => vm.Enabled,
                 vm => vm.EnabledFromEvent,
                 (enabled, enabledEvent) => enabled && enabledEvent);
+                */
         }
 
         /// <summary>
