@@ -21,7 +21,7 @@ namespace Commands
                 (FormsCommand as Command)?.ChangeCanExecute();
             }
         }
-        
+
         private bool _enabledFromEvent;
 
         private bool EnabledFromEvent

@@ -1,10 +1,6 @@
 ﻿using System;
 using System.Diagnostics;
-using System.Linq.Expressions;
-using System.Reactive.Linq;
 using System.Threading.Tasks;
-using System.Windows.Input;
-using AsyncAwaitBestPractices.MVVM;
 using Prism.Mvvm;
 using Prism.Services;
 using ReactiveUI;
@@ -64,7 +60,7 @@ namespace Commands
             return this.ObservesProperty(
                 () => Enabled,
                 () => EnabledFromEvent);
-    
+
             /* Same as this:
             return this.WhenAnyValue(
                 vm => vm.Enabled,

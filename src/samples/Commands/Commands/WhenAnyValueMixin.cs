@@ -22,7 +22,7 @@ namespace Commands
             return target.WhenAnyValue( 
                 GetExpression<TSource>(property1),
                 GetExpression<TSource>(property2), 
-                (prop1, prop2) => prop1 && prop2);
+                (p1, p2) => p1 && p2);
         }
 
         private static Expression<Func<TSource, bool>> GetExpression<TSource>(
