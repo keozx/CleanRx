@@ -12,6 +12,7 @@
 
     <ItemGroup>
         <PackageReference Include="AsyncAwaitBestPractices.MVVM" Version="4.2.0" />
+        <PackageReference Include="MvvmCross" Version="7.0.1" />
         <PackageReference Include="Prism.Forms" Version="8.0.0.1850-pre" />
         <PackageReference Include="ReactiveUI.XamForms" Version="11.5.35" />
         <PackageReference Include="Xamarin.Forms" Version="4.8.0.1269" />

@@ -11,6 +11,7 @@ namespace Commands
             var delegateVm = new DelegateCmdViewModel();
             var asyncVm = new AsyncCmdViewModel();
             var rxVm = new ReactiveCmdViewModel();
+            var mvxVm = new MvvmCrossCmdViewModel();
             Content = new StackLayout
             {
                 Spacing = 10,
@@ -109,6 +110,30 @@ namespace Commands
                                 new Label { Text = "Enable Command?" },
                                 new Switch()
                                     .Bind(nameof(rxVm.Enabled)),
+                            },
+                        },
+                    },
+                    new ContentView
+                    { 
+                        BindingContext = mvxVm,
+                        Content = new StackLayout
+                        {
+                            BindingContext = mvxVm,
+                            Children =
+                            {
+                                new Button { Text = "MvvmCross Command" }
+                                    .Width(50)
+                                    .Height(50)
+                                    .BindCommand(
+                                        nameof(mvxVm.MvxCommand),
+                                        mvxVm,
+                                        parameterSource: new Parameter
+                                        {
+                                            Type = "MvxCommand",
+                                        }),
+                                new Label { Text = "Enable Command?" },
+                                new Switch()
+                                    .Bind(nameof(mvxVm.Enabled)),
                             },
                         },
                     },
