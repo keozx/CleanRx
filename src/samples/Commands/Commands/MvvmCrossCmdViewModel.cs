@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Diagnostics;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Input;
 using AsyncAwaitBestPractices.MVVM;
@@ -58,18 +59,25 @@ namespace Commands
             return Enabled && EnabledFromEvent;
         }
 
-        private async Task OnClickAsyncTask(Parameter obj)
+        private async Task OnClickAsyncTask(Parameter obj, CancellationToken token)
         {
             try
             {
-                // Ideally, we would return the Task instead of awaiting here,
-                // but we would not be able to retrieve the Result at Command level
-                var result = await ImportantTask(obj).ConfigureAwait(false);
-                HandleResult(result);
+                try
+                {
+                    // Ideally, we would return the Task instead of awaiting here,
+                    // but we would not be able to retrieve the Result at Command level
+                    var result = await ImportantTask(obj).ConfigureAwait(false);
+                    HandleResult(result);
+                }
+                catch (InvalidOperationException ex)
+                {
+                    Debug.WriteLine($"Expected Exception handled! {ex}");
+                }
             }
-            catch (InvalidOperationException ex)
+            catch (Exception ex)
             {
-                Debug.WriteLine($"Expected Exception handled! {ex}");
+                OnError(ex);
             }
         }
 
